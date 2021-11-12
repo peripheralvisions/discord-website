@@ -6,3 +6,24 @@ body {
     background-color: #404EED;
     color: white;
 }
+
+.bg-mountains {
+    /* transition: transform 0.4s ease-in-out; */
+    animation: sway 40s infinite;
+}
+
+@keyframes sway {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5%);
+    }
+    50% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
