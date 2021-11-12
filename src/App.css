@@ -9,7 +9,7 @@ body {
 
 .bg-mountains {
     /* transition: transform 0.4s ease-in-out; */
-    animation: sway 40s infinite;
+    animation: sway 30s infinite ease;
 }
 
 @keyframes sway {
