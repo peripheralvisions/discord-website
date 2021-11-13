@@ -63,7 +63,7 @@ const CtaDownload = () => {
       <div className="absolute h-12">
         <img className="transform scale-125" src={starsSVG} alt="" />
       </div>
-      <h1 className="text-4xl font-bold mb-4">Ready to start your journey?</h1>
+      <h1 className="text-4xl font-bold mb-4 text-center">Ready to start your journey?</h1>
       <Button>Download for Windows</Button>
     </>
   );
@@ -291,7 +291,7 @@ function App() {
 
         {/* C A L L  T O  A C T I O N  */}
         <div className="">
-          <div className="container max-w-screen-xl relative mx-auto flex flex-col items-center space-y-8 p-16">
+          <div className="container max-w-screen-xl relative mx-auto flex flex-col items-center space-y-8 p-8 sm:p-16">
             <CtaDownload />
           </div>
         </div>
