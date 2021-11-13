@@ -24,11 +24,11 @@ const PanelSmall = ({ children, image, imageRight }) => {
   );
 
   return (
-    <div class="container max-w-screen-xl mx-auto flex flex-row">
-      <div className={`w-1/2 ${imageRight ? "order-2" : "order-1"}`}>
+    <div class="container max-w-screen-xl mx-auto flex flex-col md:flex-row">
+      <div className={`md:w-1/2 flex justify-center items-center ${imageRight ? "order-2" : "order-1"}`}>
         <img className="" src={image} />
       </div>
-      <div className="order-1 w-1/2 p-8 px-10 flex flex-col justify-center space-y-8">
+      <div className="order-1 md:w-1/2 p-8 md:px-10 flex flex-col justify-center md:space-y-4">
         {children ? children : backupDescription}
       </div>
     </div>
@@ -63,7 +63,7 @@ const CtaDownload = () => {
       <div className="absolute h-12">
         <img className="transform scale-125" src={starsSVG} alt="" />
       </div>
-      <h1 className="text-4xl  font-bold mb-4">Ready to start your journey?</h1>
+      <h1 className="text-4xl font-bold mb-4">Ready to start your journey?</h1>
       <Button>Download for Windows</Button>
     </>
   );
@@ -73,7 +73,7 @@ const Button = ({ children, className }) => {
   //bg-blue-900
   return (
     <button
-      className={`py-2 px-7 bg-white text-black rounded-full font-medium ${className}`}
+      className={`py-2 px-4 lg:px-7 bg-white text-black rounded-full font-medium ${className}`}
     >
       {children}
     </button>
@@ -83,31 +83,35 @@ const Button = ({ children, className }) => {
 const Footer = () => {
   const FooterElemet = ({ title, children }) => {
     return (
-      <div>
-        <ul className="flex flex-col space-y-2">
-          <li className="text-lg font-semibold text-blue-400">{title}</li>
-          {children}
-        </ul>
-      </div>
+      <ul className="flex w-1/2 sm:w-auto mb-10 sm:mb-0 flex-col space-y-2">
+        <li className="text-lg font-semibold text-blue-400">{title}</li>
+        {children}
+      </ul>
     );
   };
 
+
+  // flex flex-col md:flex-row 
+
   return (
-    <div className="footer max-w-screen-lg mx-auto">
-      <div className="flex flex-row container justify-between py-24">
-        <div className="flex flex-col w-1/3 space-y-8">
-          <span className="text-4xl uppercase font-black text-blue-400">
-            Imagine a <br /> place
-          </span>
-          <div class="flex flex-row items-center">
-            <img
-              className="mr-2"
-              src="https://flagicons.lipis.dev/flags/4x3/um.svg"
-              width={24}
-              alt=""
-              srcset=""
-            />
-            <span>English, USA </span>
+    <div className="footer mt-16 px-8 max-w-screen-xl mx-auto">
+      <div className="container mx-auto justify-between mb-10">
+
+        <div className="flex flex-col md:flex-row sm:mb-16">
+          {/* L E F T  S I D E  */}
+          <div className="flex flex-col mb-12 md:mb-0 md:w-1/3 space-y-8 ">
+            <span className="text-4xl uppercase font-black text-blue-400">
+              Imagine a <br /> place
+            </span>
+            <div class="flex flex-row items-center">
+              <img
+                className="mr-2"
+                src="https://flagicons.lipis.dev/flags/4x3/um.svg"
+                width={24}
+                alt=""
+                srcset=""
+              />
+              <span>English, USA </span>
             </div>
 
             {/* S O C I A L S */}
@@ -160,47 +164,50 @@ const Footer = () => {
                 <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
               </svg>
             </div>
+          </div>
+
+          <div className="flex flex-row flex-wrap flex-1 justify-between">
+            <FooterElemet title="Product">
+              <li>Download</li>
+              <li>Nitro</li>
+              <li>Status</li>
+            </FooterElemet>
+
+            <FooterElemet title="Company">
+              <li>About</li>
+              <li>Jobs</li>
+              <li>Branding</li>
+            </FooterElemet>
+
+            <FooterElemet title="Resources">
+              <li>College</li>
+              <li>Support</li>
+              <li>Safety</li>
+              <li>Blog</li>
+              <li>Feedback</li>
+              <li>Developers</li>
+              <li>StreamKit</li>
+            </FooterElemet>
+
+            <FooterElemet title="Policies">
+              <li>Terms</li>
+              <li>Privacy</li>
+              <li>Cookie Settings</li>
+              <li>Guidelines</li>
+              <li>Acknowledgements</li>
+              <li>Licenses</li>
+              <li>Moderation</li>
+            </FooterElemet>
+          </div>
         </div>
 
-        <div className="flex flex-row flex-1 justify-between">
-          <FooterElemet title="Product">
-            <li>Download</li>
-            <li>Nitro</li>
-            <li>Status</li>
-          </FooterElemet>
+        <hr className="mb-8" />
 
-          <FooterElemet title="Company">
-            <li>About</li>
-            <li>Jobs</li>
-            <li>Branding</li>
-          </FooterElemet>
+<div className="flex justify-between items-center">
+  <img src={logo} alt="" srcset="" />
+  <Button className="text-sm">Sign Up</Button>
+</div>
 
-          <FooterElemet title="Resources">
-            <li>College</li>
-            <li>Support</li>
-            <li>Safety</li>
-            <li>Blog</li>
-            <li>Feedback</li>
-            <li>Developers</li>
-            <li>StreamKit</li>
-          </FooterElemet>
-
-          <FooterElemet title="Policies">
-            <li>Terms</li>
-            <li>Privacy</li>
-            <li>Cookie Settings</li>
-            <li>Guidelines</li>
-            <li>Acknowledgements</li>
-            <li>Licenses</li>
-            <li>Moderation</li>
-          </FooterElemet>
-        </div>
-      </div>
-      <hr />
-
-      <div className="flex my-8 justify-between items-center">
-        <img src={logo} alt="" srcset="" />
-        <Button className="text-sm">Sign Up</Button>
       </div>
     </div>
   );
@@ -211,10 +218,10 @@ function App() {
     <div className="App overflow-x-hidden">
       <div>
         {/* N A V I G A T I O N  */}
-        <nav className="mt-8">
+        <nav className="mt-8 px-8">
           <div className="container mx-auto max-w-screen-xl flex flex-row justify-between px-8 items-center">
             <img src={logo} alt="Discord Logo" />
-            <ul className="space-x-10 flex text-sm font-semibold">
+            <ul className="hidden  space-x-10 md:flex text-sm font-semibold">
               <li>Download</li>
               <li>Nitro</li>
               <li>Safety</li>
@@ -226,26 +233,25 @@ function App() {
           </div>
         </nav>
 
-        {/* H E R O */}
-        <div className="hero my-8 relative">
+        <div className="hero mt-8 relative">
           <img
             className="bg-mountains bottom-0 absolute z-0 transform opacity-40"
             src={mountainsSVG}
             alt=""
           />
-
-          <div className="container relative mx-auto max-w-screen-xl px-24 py-32 justify-center overflow-x-hidden overflow-y-hidden rounded-full">
+          {/* H E R O */}
+          <div className="container relative mx-auto max-w-screen-xl px-8 py:16 md:px-24 md:py-32 justify-center overflow-x-hidden overflow-y-hidden">
             <div className="conatiner relative z-10 mx-auto text-center flex flex-col space-y-12 w-3/4">
-              <h1 className="font-bold uppercase text-7xl">
+              <h1 className="font-bold uppercase text-2xl md:text-5xl lg:text-7xl whitespace-nowrap">
                 Imagine a place...
               </h1>
-              <p className="text-xl font-light leading-8">
+              <p className="text-base md:text-xl md:leading-8 font-light ">
                 ...where you can belong to a school club, a gaming group, or a
                 worldwide art community. Where just you and a handful of friends
                 can spend time together. A place that makes it easy to talk
                 every day and hang out more often.
               </p>
-              <div className="flex flex-row space-x-4 justify-center">
+              <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center">
                 <Button>Download for Windows</Button>
                 <Button>Open Discord in your browser</Button>
               </div>
@@ -254,28 +260,28 @@ function App() {
         </div>
 
         {/* P A N E L S */}
-        <div className="relative flex flex-col space-y-20 mb-10">
+        <div className="relative flex flex-col space-y-20 mb-10 mt-12">
           <PanelSmall image={panelDiscordServer}>
-            <h2 className="text-5xl font-bold">
+            <h2 className="text-2xl md:text-5xl font-bold">
               Create an invite-only place where you belong
             </h2>
-            <p className="text-xl">
+            <p className="text-base md:text-xl">
               Discord servers are organized into topic-based channels where you
               can collaborate, share, and just talk about your day without
               clogging up a group chat.
             </p>
           </PanelSmall>
           <PanelSmall image={panelDiscordVoice}>
-            <h2 className="text-5xl font-bold">Where hanging out is easy</h2>
-            <p className="text-xl">
+            <h2 className="text-2xl md:text-5xl font-bold">Where hanging out is easy</h2>
+            <p className="text-base md:text-xl">
               Grab a seat in a voice channel when you’re free. Friends in your
               server can see you’re around and instantly pop in to talk without
               having to call.
             </p>
           </PanelSmall>
           <PanelSmall image={panelDiscordVoicechat}>
-            <h2 className="text-5xl font-bold">From few to a fandom</h2>
-            <p className="text-xl">
+            <h2 className="text-2xl md:text-5xl font-bold">From few to a fandom</h2>
+            <p className="text-base md:text-xl">
               Get any community running with moderation tools and custom member
               access. Give members special powers, set up private channels, and
               more.
