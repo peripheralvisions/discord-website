@@ -1,6 +1,6 @@
 # Discord Style Landing Page
 
-Custom landing page made to go along with Discord theme.
+Custom, fully responsive, landing page made to fit with Discord theme.
 
 Made with:
 * TailwindCSS
