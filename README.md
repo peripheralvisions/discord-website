@@ -6,4 +6,4 @@ Made with:
 * TailwindCSS
 * React ( Create React App )
 
-![Image](https://i.imgur.com/iymaNWB.png)
+![Image](https://i.imgur.com/iDsmx4v.png)
